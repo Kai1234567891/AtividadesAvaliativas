@@ -1,6 +1,7 @@
 8- Crie um programa que contenha um array de inteiros contendo 5 elementos.
 Utilizando apenas aritmética de ponteiros, leia esse array do teclado e imprima o dobro de cada valor lido.
 
+*Código
 #include <stdio.h>
 
 int main() { int array[5];
@@ -27,6 +28,7 @@ return 0;
 
 9- Faça um programa que leia três valores inteiros e salve seus valores em 3 variáveis, chame uma função que receba estes 3 valores de entrada por referência e ordene os valores nas variáveis, ou seja, o menor valor na primeira variável, o segundo menor valor na variável do meio, e o maior valor na última variável. A função deve retornar o valor 1 se os três valores forem iguais e 0 se existirem valores diferentes. Fora da função, exibir os valores da primeira, segunda e terceira variáveis na tela.
 
+*Código
 #include <stdio.h>
 int ordenar(int *a, int *b, int *c) { int temp;
 
@@ -72,6 +74,7 @@ return 0;
 
 10- Implemente um programa em C que defina uma struct chamada Aluno contendo os campos nome (string) e nota (float). O programa deve ler um inteiro n e alocar dinamicamente memória para armazenar n alunos. Em seguida, implemente uma função chamada maiorNota que receba um ponteiro para Aluno e a quantidade de elementos, e retorne um ponteiro para o aluno com a maior nota.
 
+*Código
 #include <stdio.h> 
 #include <stdlib.h>
 

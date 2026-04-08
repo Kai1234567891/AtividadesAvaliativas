@@ -11,26 +11,30 @@ Não utilizar vetor auxiliar para armazenar a string invertida.
 Manipular apenas via operações da pilha.
 
 Código:
-
 #include <stdio.h>
 #include <stdlib.h>
+
 
 typedef struct No {
     char dado;
     struct No* prox;
 } No;
 
+
 typedef struct {
     No* topo;
 } Pilha;
+
 
 void inicializar(Pilha* p) {
     p->topo = NULL;
 }
 
+
 int estaVazia(Pilha* p) {
     return (p->topo == NULL);
 }
+
 
 void push(Pilha* p, char c) {
     No* novo = (No*) malloc(sizeof(No));
@@ -42,6 +46,7 @@ void push(Pilha* p, char c) {
     novo->prox = p->topo;
     p->topo = novo;
 }
+
 
 char pop(Pilha* p) {
     if (estaVazia(p)) {
@@ -64,7 +69,7 @@ int main() {
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
 
-    
+   
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != '\n') { 
             push(&p, str[i]);
@@ -83,34 +88,34 @@ int main() {
     return 0;
 }
 
-Explicação do código:
-
+Explicação do Código:
 #include <stdio.h>   // Biblioteca para entrada e saída (printf, fgets)
 #include <stdlib.h>  // Biblioteca para alocação dinâmica (malloc, free, exit)
 
-// Definição do nó da pilha
+// Estrutura que representa um nó da pilha
 typedef struct No {
     char dado;           // Armazena um caractere
-    struct No* prox;     // Ponteiro para o próximo nó
+    struct No* prox;     // Ponteiro para o próximo nó da pilha
 } No;
 
-// Definição da pilha
+// Estrutura da pilha
 typedef struct {
     No* topo;            // Ponteiro para o topo da pilha
 } Pilha;
 
-// Inicializa a pilha (topo começa como NULL)
+// Inicializa a pilha (começa vazia)
 void inicializar(Pilha* p) {
-    p->topo = NULL;
+    p->topo = NULL;      // Define o topo como NULL
 }
 
 // Verifica se a pilha está vazia
 int estaVazia(Pilha* p) {
-    return (p->topo == NULL);
+    return (p->topo == NULL); // Retorna 1 se vazia, 0 caso contrário
 }
 
-// Função para inserir (empilhar) um caractere na pilha
+// Função para empilhar um caractere (push)
 void push(Pilha* p, char c) {
+
     // Aloca memória para um novo nó
     No* novo = (No*) malloc(sizeof(No));
 
@@ -123,15 +128,16 @@ void push(Pilha* p, char c) {
     // Armazena o caractere no nó
     novo->dado = c;
 
-    // O novo nó aponta para o topo atual
+    // O novo nó aponta para o topo atual da pilha
     novo->prox = p->topo;
 
     // Atualiza o topo da pilha para o novo nó
     p->topo = novo;
 }
 
-// Função para remover (desempilhar) um caractere da pilha
+// Função para desempilhar um caractere (pop)
 char pop(Pilha* p) {
+
     // Verifica se a pilha está vazia
     if (estaVazia(p)) {
         printf("Pilha vazia!\n");
@@ -141,7 +147,7 @@ char pop(Pilha* p) {
     // Guarda o nó do topo
     No* temp = p->topo;
 
-    // Guarda o valor do topo para retornar
+    // Guarda o caractere do topo
     char c = temp->dado;
 
     // Atualiza o topo para o próximo nó
@@ -155,18 +161,19 @@ char pop(Pilha* p) {
 }
 
 int main() {
-    Pilha p;                  // Declara a pilha
-    inicializar(&p);          // Inicializa a pilha
 
-    char str[100];            // Vetor para armazenar a string digitada
+    Pilha p;              // Declara a pilha
+    inicializar(&p);      // Inicializa a pilha
 
-    // Solicita a entrada do usuário
+    char str[100];        // Vetor para armazenar a string digitada
+
+    // Solicita ao usuário uma string
     printf("Digite uma string: ");
 
     // Lê a string (inclui o '\n' ao pressionar Enter)
     fgets(str, sizeof(str), stdin);
 
-    // Percorre a string até encontrar o fim ('\0')
+    // Percorre a string até o caractere final '\0'
     for (int i = 0; str[i] != '\0'; i++) {
 
         // Ignora o caractere de quebra de linha '\n'
@@ -177,7 +184,7 @@ int main() {
         }
     }
 
-    // Exibe o início da saída
+    // Exibe mensagem de saída
     printf("String invertida: ");
 
     // Enquanto a pilha não estiver vazia

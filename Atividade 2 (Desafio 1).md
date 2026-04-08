@@ -13,7 +13,7 @@ Restrições
     • Implementar as operações básicas da pilha (push, pop, isEmpty).
     • Utilizar apenas ponteiros para manipulação da estrutura. 
     
-*Código
+-Código
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct No { char dado;
@@ -87,3 +87,5 @@ printf("Expressão INVÁLIDA\n");
 
 return 0;
 }
+
+-Explicação: Aqui eu usei uma pilha dinâmica para verificar se uma expressão está balanceada.Criei uma struct para representar a pilha e usei malloc para alocar memória. Quando encontro um símbolo de abertura eu empilho, e quando encontro um fechamento eu desempilho e comparo. Se a ordem estiver errada ou faltar fechamento, a expressão é inválida. No final, verifico se a pilha ficou vazia para confirmar se a expressão é válida.
